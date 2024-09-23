@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="LearningPlatform.Pages.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:renderers="clr-namespace:XamUIDemo.Renderers"
+    xmlns:utilities="clr-namespace:LearningPlatform.Utilities;assembly=LearningPlatform"
+    BackgroundImageSource="mainBg2"
+    NavigationPage.HasNavigationBar="False">
+
+    <AbsoluteLayout>
+        <!--<utilities:VideoPlayer Source="login_background_video"/>-->
+        <Image
+            x:Name="Logo"
+            WidthRequest="200"
+            HeightRequest="200"
+            AbsoluteLayout.LayoutBounds="0,0,1,.4"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="Transparent"
+            Source="polytech"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand" 
+            Margin="0,10,0,-50"/>
+        <StackLayout
+
+            AbsoluteLayout.LayoutBounds="1,1,1,.6"
+            AbsoluteLayout.LayoutFlags="All"
+            Spacing="10">
+            <renderers:PancakeView
+                x:Name="UsernamePancake"
+                TranslationX="-60"
+                Margin="0,0,0,0"
+                Padding="20,0,0,0"
+                HeightRequest="80"
+                CornerRadius="0,5,0,5"
+                BackgroundColor="white"
+                VerticalOptions="Center"
+                Opacity="0">
+                <renderers:BorderlessEntry
+                    x:Name="UsernameEntry"
+                    FontSize="14"
+                    Placeholder="Username"
+                    Text="student1@example.com"
+                    PlaceholderColor="Black"
+                    TextColor="Black"/>
+            </renderers:PancakeView>
+            <renderers:PancakeView
+                 x:Name="PassPancake"
+                TranslationX="-60"
+                Opacity="0"
+                Margin="0,10,0,0"
+                Padding="20,0,0,0"
+                CornerRadius="0,5,0,5"
+                HeightRequest="80"
+                BackgroundColor="White"
+                VerticalOptions="Center">
+                <renderers:BorderlessEntry
+                    x:Name="PasswordEntry"
+                    FontSize="14"
+                    IsPassword="True"
+                    Placeholder="Password"
+                    Text="student123"
+                    PlaceholderColor="Black"
+                    TextColor="Black" />
+            </renderers:PancakeView>
+            <StackLayout Orientation="Horizontal">
+                <Button
+                    x:Name="LoginButton"
+                    TranslationX="60"
+                    Opacity="0"
+                    Margin="150,30,0,0"
+                    HeightRequest="50"
+                    WidthRequest="150"
+                    AbsoluteLayout.LayoutBounds="1,1,1,.2"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="#0052FF"
+                    Clicked="Login"
+                    CornerRadius="0"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="Login"
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

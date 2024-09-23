@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:renderers="clr-namespace:XamUIDemo.Renderers"
+             xmlns:vm="clr-namespace:LearningPlatform.Pages.ViewModels;assembly=LearningPlatform"
+             x:Class="LearningPlatform.Pages.AdminPanel"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:AdminPanelViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" x:Name="logoutBtn" Text="Logout" Clicked="LogoutBtn_OnClicked"></Button>
+                <Label Grid.Row="1" Text="Admin panel" Margin="5" TextColor="DarkSlateGray" FontSize="Title"/>
+                <Frame Grid.Row="2" BorderColor="DarkSlateGray" Margin="5">
+                    <StackLayout Margin="5">
+                        <Label Text="Add new student"/>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="studentEmail" Placeholder="email"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="studentFirstName" Placeholder="Firstname"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="studentLastName" Placeholder="Lastname"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                        <Picker x:Name="StudentGroupsPicker"
+                                ItemsSource="{Binding Groups}"/>
+                    </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="studentPassword" Placeholder="Password"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="studentConfirmPassword" Placeholder="Confirm Password"/>
+                        </renderers:PancakeView>
+
+                    <Button x:Name="studentSubmitBtn" Text="Submit" Clicked="studentSubmitBtn_OnClicked" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="3" BorderColor="DarkSlateGray" Margin="5">
+                    <StackLayout Margin="5">
+                        <Label Text="Add new teacher"/>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="teacherEmail" Placeholder="email"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="teacherFirstName" Placeholder="Firstname"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="teacherLastName" Placeholder="Lastname"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="teacherPassword" Placeholder="Password"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <renderers:BorderlessEntry x:Name="teacherConfirmPassword" Placeholder="Confirm Password"/>
+                        </renderers:PancakeView>
+
+                    <Button x:Name="teacherSubmitBtn" Text="Submit" Clicked="teacherSubmitBtn_Clicked" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="4" BorderColor="DarkSlateGray" Margin="5">
+                    <StackLayout Margin="5">
+                        <Label Text="Add new Course"/>
+
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                        <renderers:BorderlessEntry x:Name="courseTitle" Placeholder="Course Title"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <Editor x:Name="courseContent" Placeholder="Course Content"/>
+                        </renderers:PancakeView>
+                        <renderers:PancakeView BorderColor="Black" BorderThickness="1" Padding="10,0,0,0">
+                            <Editor x:Name="courseShortDescr" Placeholder="Short description"/>
+                        </renderers:PancakeView>
+                    <Label Text="Teacher of this course"></Label>
+                        <Picker x:Name="courseTeacher"
+                                Title="Assign teacher to this course!"
+                                FontAttributes="Bold"
+                                ItemsSource="{Binding Teachers}"
+                                ItemDisplayBinding="{Binding FullName}"
+                                SelectedIndex="0"/>
+                        <Button x:Name="courseSubmitBtn" Text="Submit" Clicked="CourseSubmitBtn_OnClicked" />
+                </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="5" BorderColor="DarkSlateGray" Margin="5">
+                    <StackLayout Margin="5">
+                        <Label Text="Assign courses"/>
+                        <Picker x:Name="coursesPicker"
+                                ItemsSource="{Binding Courses}"
+                                ItemDisplayBinding="{Binding Name}"/>
+                        <Picker x:Name="GroupsPicker"
+                                ItemsSource="{Binding Groups}"/>
+                        <Button x:Name="assignSubmitBtn" Text="Submit" Clicked="AssignSubmitBtn_OnClicked" />
+                </StackLayout>
+                </Frame>
+        </Grid>
+
+        
+        <!-- add courses -->
+        <!-- assign courses -->
+    </ScrollView>
+
+</ContentPage>

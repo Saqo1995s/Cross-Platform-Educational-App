@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataTemplate xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="LearningPlatform.Pages.Templates.RecentCourseCardTemplte"
+              xmlns:local="clr-namespace:LearningPlatform.Pages;assembly=LearningPlatform">
+
+    <Frame BorderColor="DarkSlateGray" HasShadow="True" Padding="5" Margin="10">
+        <Grid Padding="5" HorizontalOptions="FillAndExpand" WidthRequest="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" FontSize="Caption" Text="{Binding Name}" HorizontalOptions="StartAndExpand"/>
+            <BoxView Grid.Row="1" Color="DarkGray" HeightRequest="1" WidthRequest="350" Margin="2,0,2,0" HorizontalOptions="StartAndExpand"/>
+            <Label Grid.Row="2" FontSize="Micro" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Participants: " TextColor="CornflowerBlue"/>
+                        <Span Text="{Binding Participants, Mode=TwoWay}" TextColor="DarkSlateGray"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+    </Frame>
+</DataTemplate>

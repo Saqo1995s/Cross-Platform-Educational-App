@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:LearningPlatform.Converters;assembly=LearningPlatform"
+             xmlns:behaviors="clr-namespace:LearningPlatform.Behaviors;assembly=LearningPlatform"
+             xmlns:viewModels="clr-namespace:LearningPlatform.Pages.ViewModels;assembly=LearningPlatform"
+             x:Class="LearningPlatform.Pages.HomePageTabs.AgendaPage">
+    <ContentPage.BindingContext>
+        <viewModels:AgendaViewModel></viewModels:AgendaViewModel>
+    </ContentPage.BindingContext>
+</ContentPage>

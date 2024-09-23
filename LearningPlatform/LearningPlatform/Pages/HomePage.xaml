@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearningPlatform.Pages.HomePage"
+             xmlns:local="clr-namespace:LearningPlatform.Pages;assembly=LearningPlatform"
+             xmlns:homePageTabs="clr-namespace:LearningPlatform.Pages.HomePageTabs;assembly=LearningPlatform"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="True"
+             Title="Dashboard">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="LogoutBtn_OnClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <!--<TabbedPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#1A2980" Offset="0.5"/>
+            <GradientStop Color="#26D0CE" Offset="0.5"/>
+        </LinearGradientBrush>
+    </TabbedPage.Background>-->
+    
+    <!--Pages can be added as references or inline-->
+    <!--<CarouselPage Title="Dashboard" IconImageSource="icon_feed.png">-->
+    <ContentPage.Content>
+        <homePageTabs:DashboardPage/>
+    </ContentPage.Content>
+        
+    <!--</CarouselPage>-->
+
+    <!--<CarouselPage Title="Agenda" IconImageSource="icon_feed.png">
+        <homePageTabs:AgendaPage/>
+    </CarouselPage>
+
+    <CarouselPage Title="More" IconImageSource="icon_about.png">
+        <homePageTabs:MorePage/>
+    </CarouselPage>-->
+
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearningPlatform.Pages.HomePageTabs.DashboardPages.CoursePage"
+             xmlns:vm="clr-namespace:LearningPlatform.Pages.ViewModels;assembly=LearningPlatform"
+             Title="{Binding CourseTitle}"
+             BackgroundColor="LightSkyBlue">
+
+    <ContentPage.BindingContext>
+        <vm:CourseViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Label FontSize="Body" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Teacher: " TextColor="White"/>
+                            <Span Text="{Binding TeacherName}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="Body" HorizontalTextAlignment="End" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Participants: " TextColor="White"/>
+                            <Span Text="{Binding Participants}" TextColor="DarkSlateGray"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            
+            <WebView x:Name="courseContentWebView" Grid.Row="1"/>
+            <Button x:Name="doneBtn" Grid.Row="2" Text="Done" BackgroundColor="Transparent" Clicked="DoneBtn_OnClicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

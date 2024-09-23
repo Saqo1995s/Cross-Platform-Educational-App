@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:LearningPlatform.Pages.ViewModels;assembly=LearningPlatform"
+             xmlns:templates="clr-namespace:LearningPlatform.Pages.Templates;assembly=LearningPlatform"
+             x:Class="LearningPlatform.Pages.HomePageTabs.DashboardPage"
+             BackgroundColor="LightSkyBlue">
+
+    <ContentView.BindingContext>
+        <viewModels:DashboardViewModel/>
+    </ContentView.BindingContext>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="20*"></RowDefinition>
+                <RowDefinition Height="70*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" BackgroundColor="White" Orientation="Horizontal">
+                <Label VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Student: " TextColor="DarkSlateGray" FontSize="Large" />
+                            <Span Text="{Binding UserInfo.DisplayName}" TextColor="DarkSlateGray" FontSize="Large"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            <Label Text="{Binding Group}"  TextColor="DarkSlateGray" FontSize="Large" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+            </StackLayout>
+            
+
+            <StackLayout Orientation="Vertical" Grid.Row="1">
+                <Label FontSize="Title" Text="Recent Courses"/>
+                <CollectionView x:Name="RecentCoursesCollectionView"
+                                ItemsLayout="HorizontalList"
+                                VerticalOptions="Start"
+                                ItemsSource="{Binding RecentCourseList}"
+                                SelectionMode="Single"
+                                SelectedItem="{Binding SelectedCourse}"
+                                SelectionChanged="CoursesCollectionView_OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <templates:RecentCourseCardTemplte/>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Grid.Row="2">
+                <Label FontSize="Title" Text="Your Courses"/>
+                <CollectionView x:Name="CoursesCollectionView"
+                                VerticalOptions="FillAndExpand"
+                                ItemsSource="{Binding CourseList}"
+                                SelectionMode="Single"
+                                SelectedItem="{Binding SelectedCourse}"
+                                SelectionChanged="CoursesCollectionView_OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <templates:CourseCardTemplate/>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+</ContentView>
